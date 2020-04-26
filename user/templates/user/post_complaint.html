@@ -1,0 +1,20 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block nav %}
+    <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">Announcements</a></li>
+    <li><a href="{% url 'application-for-hostel' %}">Apply For Hostel</a></li>
+{% endblock nav %}
+{% block content %}
+    <div class="content-section">
+    	<form method="POST" enctype="multipart/form-data">
+    		{% csrf_token %}
+    		<fieldset class="form-group">
+    			<legend class="border-bottom mb-4">Post your Complaint</legend>
+    			{{ form|crispy }}
+    		</fieldset>
+    		<div class="form-group">
+    			<button class="btn btn-outline-info" type="submit">Post</button>
+    		</div>
+    	</form>
+    </div>
+{% endblock content %}

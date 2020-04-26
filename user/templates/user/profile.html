@@ -1,0 +1,35 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block nav %}
+  {% if not user.is_superuser %}
+    <li><a href="#">Pay Mess Bill</a></li>
+    <li><a href="{% url 'postComplaint' %}">Post Complaint</a></li>
+    <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">Announcements</a></li>
+    <li><a href="{% url 'application-for-hostel' %}">Apply For Hostel</a></li>
+  {% else %}
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
+    <li><a href="{% url 'fee' %}">View Fee Details</a></li>
+  {% endif %}
+{% endblock nav %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" style="height: 100px; margin: 10px; margin-right: 30px; margin-top: 0; image-orientation: from-image;" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+    </div>
+{% endblock content %}

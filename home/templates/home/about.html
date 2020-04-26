@@ -1,0 +1,28 @@
+{% extends "home/base.html" %}
+{% block nav %}
+    {% if not user.is_superuser %}
+    <li><a href="#">Pay Mess Bill</a></li>
+    <li><a href="{% url 'postComplaint' %}">Post Complaint</a></li>
+    <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">Announcements</a></li>
+    <li><a href="{% url 'application-for-hostel' %}">Apply For Hostel</a></li>
+  {% else %}
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
+    <li><a href="{% url 'fee' %}">View Fee Details</a></li>
+  {% endif %}
+{% endblock nav %}
+{% block content %}
+    <section id="main">
+      <div class="container">
+        <article id="main-col">
+          <h1 class="page-title">About Us</h1>
+          <p>
+            This is a hostel management system for Punjab Engineering College (Deemed to be University) , Chandigarh . This system is designed by Gurpreet Singh (18103089) as a project of Engineering Analysis & Design(EDA) and Database Management System(DBMS) courses.
+          </p>
+          <p class="dark">
+            This system will help students of PEC , those are staying in hostels . Using this website you can see vacent rooms in any hostels , pay your mess and hostel bill , post your complaints regarding hostel and mess issues . Now it will be easier to maintain hostels .
+          </p>
+        </article>
+        
+      </div>
+    </section>
+{% endblock content %}

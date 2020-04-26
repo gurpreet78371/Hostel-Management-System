@@ -1,0 +1,77 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block nav %}
+    <li><a href="#complaints">View Complaints</a></li>
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
+    <li><a href="{% url 'fee' %}">View Fee Details</a></li>
+    <li><a href="#hostelapplications">View Hostel Applications</a></li>
+{% endblock nav %}
+{% block content %}
+	{% if applications %}
+		<div class="container" id="hostelapplications">
+			<h1 style="text-align: center;">Hostel Applications</h1>
+			<div class="table">
+				<div class="table-header">
+					<div class="header__item">Hostel Name</div>
+					<div class="header__item">Student ID</div>
+					<div class="header__item">Student Name</div>
+					<div class="header__item">Chandigarh Qouta</div>
+					<div class="header__item">Anti Ragging Certificate</div>
+					<div class="header__item">No Vehicle Affidavite</div>
+					<div class="header__item">Application Date</div>
+				</div>
+				
+				{% for application in applications %}
+					<div class="table-content">
+						<div class="table-row">
+							<div class="table-data">{{application.hostelName}}</div>
+							<div class="table-data">{{application.sid}}</div>
+							<div class="table-data">{{application.studentName}}</div>
+							<div class="table-data">{{application.isChandigarhQouta}}</div>
+							<div class="table-data">
+								<a href="{{ application.antiRaggingAffidavite.url }}" style="font-size: small;">Anti Ragging Affidavite
+								</a>	
+							</div>
+							<div class="table-data">
+								<a href="{{ application.antiRaggingAffidavite.url }}" style="font-size: small;">No vehicle Affidavite
+								</a>
+							</div>
+							<div class="table-data">{{application.dateApplied}}</div>
+						</div>
+						
+					</div>
+				{% endfor %}
+				
+			</div>
+		</div>
+	{% else %}
+		<h2>you dont have any hostel applications</h2>
+	{% endif %}
+	<br><br>
+	{% if complaints %}
+		<div class="container" id="complaints">
+			<h1 style="text-align: center;">Complaints</h1>
+			<div class="table">
+				<div class="table-header">
+					<div class="header__item1">Regarding</div>
+					<div class="header__item1">Title</div>
+				</div>
+				
+				{% for complaint in complaints %}
+					<div class="table-content">
+						<div class="table-row">
+							<div class="table-data1">{{complaint.category}}</div>
+							<div class="table-data1">{{complaint.title}}</div>
+						</div>
+						
+					</div>
+				{% endfor %}
+				
+			</div>
+		</div>
+	{% else %}
+		<h2>you dont have any complaints</h2>
+	{% endif %}
+{% endblock content %}
+

@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block nav %}
+    <li><a href="post_announcement">Post Announcement</a></li>
+    <li><a href="updateFee">Update Fee</a></li>
+{% endblock nav %}
+{% block content %}
+	<div>
+		<small>you are logged in as {{user.username}}</small>
+	</div>
+	<div class="container">
+
+		<div class="table">
+			<div class="table-header">
+				<div class="header__item" style="text-decoration-color: white;">SID</div>
+				<div class="header__item" style="text-decoration-color: white;">Name</div>
+				<div class="header__item" style="text-decoration-color: white;">Regular Fee</div>
+				<div class="header__item" style="text-decoration-color: white;">Extra</div>
+				<div class="header__item" style="text-decoration-color: white;">Discount</div>
+				<div class="header__item" style="text-decoration-color: white;">Total</div>
+			</div>
+			{% for fee in fee_list %}
+				<div class="table-content">
+					<div class="table-row">
+						<div class="table-data">{{fee.User.StudentID}}</div>
+						<div class="table-data">{{fee.User.user.first_name}} {{fee.User.user.last_name}}</div>
+						<div class="table-data">{{fee.regularFee}}</div>
+						<div class="table-data">{{fee.extraFee}}</div>
+						<div class="table-data">{{fee.discount}}</div>
+						<div class="table-data">{{fee.Total}}</div>
+					</div>
+					
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}

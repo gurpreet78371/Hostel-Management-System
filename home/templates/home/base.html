@@ -1,0 +1,293 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Title -->
+    <title>PEC(Deemed To be University) Hostels</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'home/images/pec_logo.jpg' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+</head>
+
+<body>
+    
+    <div class="modal fade" data-backdrop="static" id="myModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title">Announcements</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+
+            <div class="modal-body" id="modalBody">
+                <!-- Modal body.. -->
+                {% for notification in notifications %}
+                    <small>
+                        <a href="#">
+                            <small style="text-decoration-color: blue;">
+                                {{notification.title}}
+                            </small>
+                        </a>
+                        ,   ({{notification.date_posted|date:"D M, Y"}})
+                    </small>
+                    <hr>
+                {% endfor %}
+            </div>
+        
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-primary">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="{% url 'web-home' %}"><img src="{% static 'home/images/pec_logo.jpg' %}" alt=""></a>
+                        </div>
+
+                        <!-- Top Contact Info -->
+                        <div class="top-contact-info d-flex align-items-center">
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Vidya Path, Sector 12, Chandigarh, 160012"><img src="{% static 'home/images/placeholder.png' %}" alt=""> <span>Vidya Path, Sector 12, Chandigarh, 160012</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="office@yourfirm.com"><img src="{% static 'home/images/message.png' %}" alt=""> <span>gurpreet78371@gmail.com</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="credit-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="creditNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'users' %}">Home</a></li>
+                                    {% else %}
+                                       <li><a href="{% url 'web-home' %}">Home</a></li>
+                                    {% endif %} 
+                                    <li><a href="{% url 'web-about' %}">About Us</a></li>
+                                    {% block nav %}{% endblock %}
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Research</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="https://www.pec.ac.in/research/overview">Overview</a></li>
+                                <li><a href="https://www.pec.ac.in/research-groups">Research Groups</a></li>
+                                <li><a href="https://www.pec.ac.in/sponsored-research">Sponsored Research</a></li>
+                                <li><a href="https://www.pec.ac.in/consultancy">Consultancy</a></li>
+                                <li><a href="https://www.pec.ac.in/coe/collaborations">Collaborations</a></li>
+                                <li><a href="https://www.pec.ac.in/house-projects">In-House Projects</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Academics</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="https://www.pec.ac.in/current-students/time-tables">Time Tables</a></li>
+                                <li><a href="https://www.pec.ac.in/current-students/examination">Examination</a></li>
+                                <li><a href="https://www.pec.ac.in/academics/calendar">Academic Calendar</a></li>
+                                <li><a href="https://www.pec.ac.in/programmes/ug/structure">Undergraduate Programme</a></li>
+                                <li><a href="https://www.pec.ac.in/programmes/pg/structure">Postgraduate Programme</a></li>
+                                <li><a href="https://www.pec.ac.in/programmes/phd">PhD Programme</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Facilities</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="https://www.pec.ac.in/library">Library</a></li>
+                                <li><a href="https://www.pec.ac.in/computer-centre">Computer Centre</a></li>
+                                <li><a href="https://www.pec.ac.in/Sports">Sports</a></li>
+                                <li><a href="{% url 'web-home' %}">Hostels</a></li>
+                                <li><a href="https://www.pec.ac.in/medical-facilities">Medical Facility</a></li>
+                                <li><a href="https://www.pec.ac.in/workshops">Workshops</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-100">
+                        <h5 class="widget-title">Information</h5>
+                        <!-- Nav -->
+                        <nav>
+                            <ul>
+                                <li><a href="http://172.15.0.24/enotices/">E-Notices</a></li>
+                                <li><a href="https://www.pec.ac.in/multimedia">Multimedia</a></li>
+                                <li><a href="https://www.pec.ac.in/prospectus">Brochure & Prospectus</a></li>
+                                <li><a href="http://crikc.puchd.ac.in/">CRIKC</a></li>
+                                <li><a href="https://www.pec.ac.in/institute/sexual-harassment-complaints-committee">Sexual Harassment Complaints</a></li>
+                                <li><a href="https://www.pec.ac.in/credits">Website Credits</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- <section id="section-footer" class="section section-footer" style="background-color:#8c1515;">
+                  <div class="container">
+                    <div class="row">
+                      <div class="region region-footer-first col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div id="block-block-8" class="block block-block">
+                          <div class="content">
+
+                            <p>Copyright © 2020 Punjab Engineering College (Deemed to be University), Sector 12, Chandigarh, 160012</p>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                    <div class="region region-footer-second col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                      <div id="block-menu-menu-footer-menu" class="block block-menu">
+                      <div class="content">
+
+                        <ul class="menu"><li class="first leaf"><a href="#" title="">Web Editor</a></li>
+                          <li class="leaf"><a href="#" title=""> Anti-Ragging</a></li>
+                          <li class="leaf"><a href="#" title="">Privacy Statement</a></li>
+                          <li class="last leaf"><a href="#" title="">Report Copyright Infringement</a></li>
+                        </ul>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </section> -->
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
+                            <!-- Footer Logo -->
+                            <a href="{% url 'web-home' %}" class="footer-logo"><img src="{% static 'home/images/pec_logo.jpg' %}" alt="">       .</a>
+
+                            <!-- Copywrite Text -->
+                            <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.pec.ac.in/" target="_blank">PEC Chandigarh</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Ends ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'home/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'home/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'home/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'home/js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'home/js/active.js' %}"></script>
+    <script>
+        // var for_start = "{% for notification in notifications %}"
+        // var content1 = "<small>notification.content</small>"
+        // var for_end = "{% endfor %}"
+        // var modal_body = for_start+content+for_end
+        function myFunction() {
+          // document.getElementById("modalBody").textContent = content1;
+        }
+    </script>
+</body>
+
+</html>

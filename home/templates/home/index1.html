@@ -1,0 +1,790 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block nav %}
+    <li><a href="#services">Services</a></li>
+    <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal" >Announcements</a></li>
+    <li><a href="#rules">Hostel Rules</a></li>
+    <li><a href="#wardenMessage">Warden's Message</a></li>
+    <li><a href="#studentRepresentatives">Hostels</a></li>
+{% endblock nav%}
+{% block content %}
+	<div class="hero-area">
+        <div class="hero-slideshow owl-carousel">
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img bg-overlay" style="background-image: url({% static 'home/img/bg-img/building2.jpeg' %});"></div>
+
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text text-center">
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Hostels, PEC Chandigarh</h2>
+                                <p data-animation="fadeInUp" data-delay="500ms">The students of PEC Chandigarh are provided with accomodation facilities in the campus of the college itself. For this purpose, PEC Chandigarh currently has two boys' hostel and one girls' hostel in the campus.</p>
+                                <a href="{% url 'web-about' %}" class="btn credit-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide Duration Indicator -->
+                <div class="slide-du-indicator"></div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img bg-overlay" style="background-image: url({% static 'home/img/bg-img/building1.jpg' %});"></div>
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text text-center">
+
+                                <h2 data-animation="fadeInDown" data-delay="300ms">Hostels, PEC Chandigarh</h2>
+                                <p data-animation="fadeInDown" data-delay="500ms">The students of PEC Chandigarh are provided with accomodation facilities in the campus of the college itself. For this purpose, PEC Chandigarh currently has two boys' hostel and one girls' hostel in the campus.</p>
+                                <a href="{% url 'web-about' %}" class="btn credit-btn mt-50" data-animation="fadeInDown" data-delay="700ms">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide Duration Indicator -->
+                <div class="slide-du-indicator"></div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img bg-overlay" style="background-image: url({% static 'home/img/bg-img/building2.jpeg' %});"></div>
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text text-center">
+
+                                <h2 data-animation="fadeInDown" data-delay="300ms">Hostels, PEC Chandigarh</h2>
+                                <p data-animation="fadeInDown" data-delay="500ms">The students of PEC Chandigarh are provided with accomodation facilities in the campus of the college itself. For this purpose, PEC Chandigarh currently has two boys' hostel and one girls' hostel in the campus.</p>
+                                <a href="{% url 'web-about' %}" class="btn credit-btn mt-50" data-animation="fadeInDown" data-delay="700ms">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide Duration Indicator -->
+                <div class="slide-du-indicator"></div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img bg-overlay" style="background-image: url({% static 'home/img/bg-img/building1.jpg' %});"></div>
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text text-center">
+
+                                <h2 data-animation="fadeInDown" data-delay="300ms">Hostels, PEC Chandigarh</h2>
+                                <p data-animation="fadeInDown" data-delay="500ms">The students of PEC Chandigarh are provided with accomodation facilities in the campus of the college itself. For this purpose, PEC Chandigarh currently has two boys' hostel and one girls' hostel in the campus.</p>
+                                <a href="{% url 'web-about' %}" class="btn credit-btn mt-50" data-animation="fadeInDown" data-delay="700ms">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide Duration Indicator -->
+                <div class="slide-du-indicator"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Features Area Start ###### -->
+    <section class="features-area section-padding-100-0">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-features-area mb-100 wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Section Heading -->
+                        <div class="section-heading">
+                            <div class="line"></div>
+                            <p>Hostel Tour</p>
+                            <h2>HOSTELS, PEC-C</h2>
+                        </div>
+                        <h6>PEC hostel provide clean clean room, gym and much more facilities to students.</h6>
+                        <a href="{% url 'web-about' %}" class="btn credit-btn mt-50">Know More</a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-features-area mb-100 wow fadeInUp" data-wow-delay="300ms">
+                        <img src="{% static 'home/img/bg-img/building2.jpeg' %}" alt="">
+                        <h5>HOSTEL BUILDING</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-features-area mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'home/img/bg-img/building1.jpg' %}" alt="">
+                        <h5>HOSTEL ROOM</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-features-area mb-100 wow fadeInUp" data-wow-delay="700ms">
+                        <img src="{% static 'home/img/bg-img/mess1.jpg' %}" alt="">
+                        <h5>HOSTEL MESS</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Features Area End ###### -->
+
+    <!-- ##### Call To Action Start ###### -->
+
+  <section id="rules">
+  	<h3 class="rules-header">Hostel Rules</h3>
+  	<div class="bg">
+	    <div class="container">
+	        <header class="section-header">
+	          <h3 style="text-align: center; color: white;">CODE OF CONDUCT AND DISCIPLINE FOR STUDENTS</h3>
+	          <br>
+	        </header>
+	        <div class="row row-clubs" style="">
+	          <div class="col col-content col-content-text wow fadeInUp" data-wow-delay="0.1s">
+	              <div class="bg-text">
+	                <p style="color: white;">
+	                    The rules and guidelines for management of hall residence have been framed for the smooth functioning of the Institute. All the hall residents are requested to cooperate with the wardens for their efficient enforcement. They must also abide by the norms of conduct &amp; discipline applicable for studentship at IIT Patna and follow in letter and spirit any regulation laid down regarding conduct in the hall. For infraction of discipline, Warden is the immediate concerned authority. Some of the rudimentary rules &amp; regulations are as follows:
+	                </p>
+	                <p style="color: white;">
+	                    1.No student shall change or give up the assigned residence in any hall of residence without prior permission of concerned warden.
+	                    <br>
+	                    2.Students given accommodation in a hall of residence must fill in the student accommodation record and take possession of their room and furnishings under their own signature. They must also submit a copy of their recent passport size photograph to the warden's office for this purpose. This record must be updated for any subsequent changes.
+	                    <br>
+	                    3.The resident shall be responsible for the furnishings for the entire period of his/her stay at IIT Patna. Willful damage of furnishings due to improper handling and misuse shall be treated as an act of gross indiscipline and suitable action shall be taken.
+	                    <br>
+	                    4.Students shall be required to make their rooms available whenever required for repairs, maintenance, disinfection & inspection.
+	                    <br>
+	                    5.Students will be responsible for the safe keeping of their own property. In the event of oss of the personal property of a student due to theft, fire or any other cause, the Institute shall accept no responsibility and shall not be liable for payment of any compensation.
+	                    <br>
+	                    6.Use of electrical appliances like refrigerators & TV are strictly prohibited.
+	                    <br>
+	                    7.Engaging personal attendants and keeping pets by a student in any Hall of residence is strictly prohibited.
+	                    <br>
+	                    8.Acquaintances/Relatives/Friends etc of the opposite sex will not be permitted to visit individual rooms or stay in a student hostel. However a short duration visit to the common room/office room may be permitted by the warden on request. A record of all such visits shall be maintained.
+	                    <br>
+	                    9.Smoking in the dining hall, common room, library and other public places is strictly prohibited.
+	                    <br>
+	                    10.Possession, distribution and consumption of alcohol, drugs and all other intoxicants in hall of residence are strictly banned.
+	                    <br> 
+	                    11.Improper behavior with fellow students, staff, wardens, harassment of Juniors/Seniors, causing of disturbance to others etc will be treated as acts of indiscipline.
+	                    <br>
+	                    12.Indiscriminate fixing of pictures or writing of graffiti on the hall's wall is considered an act of indiscipline and individual(s) responsible for such act will be held responsible for the damage caused.
+	                    <br>
+	                    13.All residents shall strictly keep to the timings set down for meals and maintain decorum and decency regarding dress and behavior in the dining hall.
+	                    <br>
+	                    14.Any resident of Hall going out of hall premises between 10pm and 6am must sign a register, indicating his/her destination and time of out/return. It may be noted that permission to stay away from Hall beyond 10pm and 6am can only be granted when the resident is required to work in library, laboratory, computer room etc. For overnight or longer stay off campus, a resident must indicate his/her destination and expected duration of absence in writing to the warden.
+	                    <br>
+	                    <b>Failure to comply with the requirements and procedures applicable to residents may lead to disciplinary action (s) which may include withholding of grades, withdrawal of permission to appear in examinations etc.</b>
+	                    <br>
+	                </p>
+	                <p></p>
+	              </div>
+
+	          </div>
+	        </div>
+	    </div>
+    </div>
+  </section>
+    <br>
+    <br>
+  <section id="wardenMessage">
+  	<h3 style="text-decoration-line: underline; text-align: center; padding-top: 50px;">Warden's Message</h3>
+  	<div class="bg">
+	    <div class="container">
+	        <header class="section-header">
+	          
+	          <br>
+	        </header>
+	        <div class="row row-clubs" style="">
+	          <div class="col col-content col-content-text wow fadeInUp" data-wow-delay="0.1s">
+	              <div class="bg-text">
+	                <h6 style="color: white;">Dear Students,</h6>
+
+	                <p style="color: white;">It is a great pleasure and privilege for us to welcome you all at PEC Chandigarh.</p>
+
+	                <p style="color: white;">PEC CHANDIGARH has a 500 acres sprawling lush green campus. With green patches, newly constructed buildings and playgrounds, the ambience of this PEC campus is worth appreciating. The pollution free environment, habited by numerous beautiful birds and animals will ensure that you have bundles of sweet memories to cherish after you graduate from PEC CHANDIGARH.</p>
+
+	                <p style="color: white;">We have a team of wardens for Boys hostel (Dr. Saurabh Kumar Pandey, Dr. Sourav Kumar Dandapat, Dr. Deepu P., Dr. Arghya Choudhury, Dr. Prakash Parida and Dr. Balendu Bhooshan Upadhyay) &amp; Girls Hostel (Dr. Neha Kiritkumar Shah and Dr. Antara Garai). All wardens are faculty/scientist of different departments of the institute. As a member of team of wardens of different blocks (A, B, C, D) of the hostel of PEC CHANDIGARH, Bihta, we are delighted to inform you all that the dedicated team of wardens are supported by adequate staff members and caretakers. All of us are committed to provide you all with utmost care for a comfortable stay coupled with desirable ambience for academic, cultural, extra-curricular and overall personality development.</p>
+
+	                <p style="color: white;">The different blocks of the hostel of PEC CHANDIGARH, Bihta function democratically where student residents play key role in the governance process as secretaries for various activities (e.g. mess, maintenance, cultural, technical, environmental, sports etc.). Team of wardens of different blocks of the hostel are the immediate advisor, friend, philosopher and guide to the students as and when need arises. For day-to-day activities related to hostel matter, adequate supporting staffs (caretaker, maintenance staff) are readily available. Each of the blocks of the hostel have complete internet connectivity with links to the virtual class rooms/NPTEL lectures, English Edge Software, indoor games facility, TV room, washing facility, canteen, and other utilities available at your doorstep.</p>
+
+	                <p style="color: white;">We are very sure that you all will definitely enjoy your stay in the PEC CHANDIGARH, Bihta and become responsible and enlightened citizens of India with capability to face and resolve all types of challenges in the greater interest of society and the country as a whole.</p>
+
+	                <p style="color: white;">We wish you all the best for your comfortable, cordial and productive stay at PEC CHANDIGARH.</p>
+
+	                <p style="color: white;">Jai Hind</p>
+	                <p>
+	                  </p><h5 style="font-weight: 600; color: white;">Wardens' Team</h5>
+	                  <h5 style="color: white;">PEC CHANDIGARH</h5>
+	                <p></p>
+	              </div>
+
+	          </div>
+	        </div>
+	    </div>
+    </div>
+  </section>
+  <br><br>
+    <!-- ##### Call To Action End ###### -->
+
+  <!--==========================
+    Students representatives
+  ===========================-->
+  <section id="studentRepresentatives">   
+     <header class="section-header">
+        <h1 class="section-title" style="text-align: center; text-decoration-line: underline; margin-bottom: 50px;">Student Representatives</h1>
+    </header>
+    <br>
+    <div class="container">
+
+        <h4 class="text-center">BOY'S HOSTEL</h4>
+    <div class="bs-example">
+        <div class="accordion" id="accordionExample">
+            
+            
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"><h5 style="color: #222;">Shivalik Hostel</h5></button>                     
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <table>
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Post</th>
+                                <th>Contact no.</th>
+                                <th>Email</th>
+                        
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Abhinav Gyan</td>
+                                    <td>Vice President, Gymkhana</td>
+                                    <td>7250925416</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Abhinav Sharma</td>
+                                    <td>General Secretary, House of Socio Cultural affairs (HOSCA)</td>
+                                    <td>9410866066</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Satyam Singh</td>
+                                    <td>Mess Secretary</td>
+                                    <td>9955543075</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Reddi Sai Vamsi</td>
+                                    <td>General Secretary, Sports and Games</td>
+                                    <td>9491916025</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Navin Kumar</td>
+                                    <td>Maintenance Secretary</td>
+                                    <td>7633058278</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Parth Kulkarni</td>
+                                    <td>General Secretary, Technical Affairs</td>
+                                    <td>7303069559</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                                <tr>
+                                    <td>Aswin Krishna</td>
+                                    <td>Students' Welfare Secretary &amp; UG Representative</td>
+                                    <td>8129450246</td>
+                                    <td>gurpreet@pec.edu.in</td>
+                                </tr>
+                             </tbody>
+                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"><h5 style="color: #222;">Aravali Hostel</h5></button>                     
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Post</th>
+                                    <th>Contact no.</th>
+                                    <th>Email</th>
+                            
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Jagdish Aanjana</td>
+                                        <td>Students' Welfare Secretary</td>
+                                        <td>7230989137</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pranshu Chandani</td>
+                                        <td>Mess Secretary</td>
+                                        <td>8791838088</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anuj Kumar</td>
+                                        <td>Sports Secretary</td>
+                                        <td>9110066718</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Priyansh Singh Rao</td>
+                                        <td>Secretary, House of Socio Cultural affairs (HOSCA)	</td>
+                                        <td>8058501770</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rahul Pandey</td>
+                                        <td>Maintenance Secretary</td>
+                                        <td>7301767109</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shivansh Shukla</td>
+                                        <td>Secretary, Technical Affairs</td>
+                                        <td>8707499083</td>
+                                        <td>gurpreet@pec.edu.in</td>
+                                    </tr>
+                             </tbody>
+                         </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"><h5 style="color: #222;">Himalya Hostel</h5></button>                     
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Post</th>
+                                        <th>Contact no.</th>
+                                        <th>Email</th>
+                                
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Kishan Kumar Singh</td>
+                                            <td>Students' Welfare Secretary</td>
+                                            <td>9558434293</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>V S Subhang</td>
+                                            <td>Mess Secretary</td>
+                                            <td>8978880947</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jagan Mohan</td>
+                                            <td>Sports Secretary</td>
+                                            <td>9381587949</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ankush Panghal</td>
+                                            <td>Secretary, House of Socio Cultural affairs (HOSCA)</td>
+                                            <td>9729989228</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Anand Kishore</td>
+                                            <td>Maintenance Secretary</td>
+                                            <td>7033583834</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aman Jee</td>
+                                            <td>Secretary, Technical Affairs</td>
+                                            <td>7424904721</td>
+                                            <td>gurpreet@pec.edu.in</td>
+                                        </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                      <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"><h5 style="color: #222;">Kurukshetra Hostel</h5></button>
+                  </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                      <table>
+                          <thead>
+                           <tr>
+                               <th>Name</th>
+                               <th>Post</th>
+                               <th>Contact no.</th>
+                               <th>Email</th>
+                       
+                           </tr>
+                           </thead>
+                           <tbody>
+
+                            <tr>
+                                <td>Akashdeep Singh</td>
+                                <td>Students' Welfare Secretary</td>
+                                <td>7307210076</td>
+                                <td>gurpreet@pec.edu.in</td>
+                            </tr>
+                           <tr>
+                               <td>Sumit Choudhary</td>
+                               <td>Mess Secretary and M.Tech Representative</td>
+                               <td>9045615742</td>
+                               <td>gurpreet@pec.edu.in</td>
+                           </tr>
+                           <tr>
+                               <td>Rahul Verma</td>
+                               <td>Sports Secretary</td>
+                               <td>9473994556</td>
+                               <td>gurpreet@pec.edu.in</td>
+                           </tr>
+                           <tr>
+                               <td>Kamaljeet Kundu</td>
+                               <td>Secretary, House of Socio Cultural affairs (HOSCA)</td>
+                               <td>9034952135</td>
+                               <td>gurpreet@pec.edu.in</td>
+                           </tr>
+                           <tr>
+                                <td>Kundan Singh</td>
+                                <td>Maintenance Secretary</td>
+                                <td>9473530949</td>
+                                <td>gurpreet@pec.edu.in</td>
+                            </tr>
+                            <tr>
+                                <td>Rajeev Raushan</td>
+                                <td>Secretary, Technical Affairs</td>
+                                <td>9891055809</td>
+                                <td>gurpreet@pec.edu.in</td>
+                            </tr>
+                           </tbody>
+                       </table>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <br>
+    <div class="container">
+
+        <h4 class="text-center">GIRL'S HOSTEL</h4>
+        <div class="bs-example">
+            <div class="accordion" id="accordionExample2">
+                <div class="card">
+                    <div class="card-header" id="headingGhOne">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseGhOne"><h5 style="color: #222;">Vindhya Hostel</h5></button>									
+                        </h2>
+                    </div>
+                    <div id="collapseGhOne" class="collapse" aria-labelledby="headingGhOne" data-parent="#accordionExample2">
+                        <div class="card-body">
+                            <table>
+                              <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Post</th>
+                                  <th>Contact no.</th>
+                                  <th>Email</th>
+                          
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>Bhavani Susmitha</td>
+                                  <td>Students' Welfare Secretary</td>
+                                  <td>9123519137</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Vijaya Gonugade</td>
+                                  <td>Secretary, House of Socio Cultural affairs (HOSCA)</td>
+                                  <td>9546089248</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Diksha Bansal</td>
+                                  <td>Secretary , Technical Affairs</td>
+                                  <td>9304633963</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Jeevana Allu</td>
+                                  <td>Secretary. Sports &amp; Games</td>
+                                  <td>7995598954</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Anisha Benny</td>
+                                  <td>Mess Secretary</td>
+                                  <td>9969277032</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Anushka Vats</td>
+                                  <td>Maintenance Secretary</td>
+                                  <td>7017462959</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingGhTwo">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGhTwo"><h5 style="color: #222;">Kalpana Hostel</h5></button>
+                        </h2>
+                    </div>
+                    <div id="collapseGhTwo" class="collapse show" aria-labelledby="headingGhTwo" data-parent="#accordionExample2">
+                        <div class="card-body">
+                            <table>
+                              <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Post</th>
+                                  <th>Contact no.</th>
+                                  <th>Email</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>Krutika Verma</td>
+                                  <td>Students' Welfare Secretary</td>
+                                  <td>7678686441</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Sheetal Singh</td>
+                                  <td>Secretary, House of Socio Cultural affairs (HOSCA)</td>
+                                  <td>7318149550</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Madhuri Ram</td>
+                                  <td>Secretary , Technical Affairs</td>
+                                  <td>9455242841</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Trisha</td>
+                                  <td>Secretary. Sports &amp; Games</td>
+                                  <td>9643751008</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Akanksha Singh Baghel</td>
+                                  <td>Mess Secretary</td>
+                                  <td>9455032451</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              <tr>
+                                  <td>Nandita Ghosh</td>
+                                  <td>Maintenance Secretary</td>
+                                  <td>7365028599</td>
+                                  <td>gurpreet@pec.edu.in</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+          </div>
+  </section>
+  <!-- #students representatives-->
+
+    <!-- ##### Call To Action Start ###### -->
+    <section class="cta-2-area wow fadeInUp" data-wow-delay="100ms">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Cta Content -->
+                    <div class="cta-content d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="cta-text">
+                            <h4>Do you want to apply for a room in hostel?</h4>
+                        </div>
+                        <div class="cta-btn">
+                            <a href="{% url 'application-for-hostel' %}" class="btn credit-btn box-shadow">Apply Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Call To Action End ###### -->
+
+    <!-- ##### Services Area Start ###### -->
+    <section class="services-area section-padding-100-0" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="line"></div>
+                        <p>Take look at our</p>
+                        <h2>Our services</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="icon">
+                            <i class="icon-profits"></i>
+                        </div>
+                        <div class="text">
+                            <h5>All the loans</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="icon">
+                            <i class="icon-money-1"></i>
+                        </div>
+                        <div class="text">
+                            <h5>Easy and fast answer</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="icon">
+                            <i class="icon-coin"></i>
+                        </div>
+                        <div class="text">
+                            <h5>No additional papers</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="icon">
+                            <i class="icon-smartphone-1"></i>
+                        </div>
+                        <div class="text">
+                            <h5>Secure financial services</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="600ms">
+                        <div class="icon">
+                            <i class="icon-diamond"></i>
+                        </div>
+                        <div class="text">
+                            <h5>Good investments</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Service Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="700ms">
+                        <div class="icon">
+                            <i class="icon-piggy-bank"></i>
+                        </div>
+                        <div class="text">
+                            <h5>Accumulation goals</h5>
+                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+
+
+
+
+
+<!--   <div class="modal fade" data-backdrop="static" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <h1>Modal Header</h1>
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <h1>Modal body</h1>
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        <h1>Modal footer</h1>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+ -->
+
+
+  <!-- <a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">{{ post.title }}</a> -->
