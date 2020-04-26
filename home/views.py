@@ -86,13 +86,10 @@ def CreateFeeQueryView(request):
             hostelName = form.cleaned_data.get('hostelName')
             # if not SID or not (month and hostelName):
             #     raise forms.ValidationError('You have to write something!')
-            print(SID)
-            print(month)
-            print(hostelName)
-            if SID != None:
+            if SID:
                 content = {'fee_list': messFee.objects.all()}
                 return render(request, 'home/fee_details.html', content)
-            elif (month != None and hostelName != None):
+            elif (month and hostelName):
                 content = {'fee_list': messFee.objects.filter(month=month, hostelName=hostelName)}
                 return render(request, 'home/fee_details.html', content)
             else:

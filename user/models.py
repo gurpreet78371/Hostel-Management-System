@@ -28,10 +28,10 @@ complaints = [
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    StudentID = models.IntegerField(primary_key=True, verbose_name='SID')
+    StudentID = models.IntegerField(verbose_name='SID',null=True, unique=True)
     Branch = models.CharField(max_length=255, choices=Departments, default="CSE")
     YearOfStudy = models.IntegerField(default=1)
-    ContactNumber = PhoneField(help_text='Contact phone number')
+    ContactNumber = PhoneField(help_text='Contact phone number',null=True)
     image = models.ImageField(default='default.jpeg', upload_to='profile_pics', blank=True)
     parentsContactNumber = PhoneField(help_text="Parent's phone number", blank=True)
 

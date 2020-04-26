@@ -46,7 +46,9 @@
 			</div>
 		</div>
 	{% else %}
-		<h2>you dont have any hostel applications</h2>
+		<div class="alert alert-info m-10" style="font-size: 20px; text-align: center; margin: 5%; margin-bottom: 0;">
+  			<strong>Info!</strong> You don't have any Hostel applications.
+		</div>
 	{% endif %}
 	<br><br>
 	{% if complaints %}
@@ -71,7 +73,9 @@
 			</div>
 		</div>
 	{% else %}
-		<h2>you dont have any complaints</h2>
+		<div class="alert alert-info m-10" style="font-size: 20px; text-align: center; margin: 5%; margin-top: 0;">
+  			<strong>Info!</strong> You don't have any Complaints.
+		</div>
 	{% endif %}
 {% endblock content %}
 

@@ -4,25 +4,26 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ProfileCreationForm, complaintForm
 from django.views.generic import CreateView
 from .models import complaint, Profile
+from django.contrib.auth.models import User
 
 
 def register(request):
-    print("hello")
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         form1 = ProfileCreationForm(request.POST)
         if form.is_valid() and form1.is_valid():
-            profile = form1.save(commit=False)
-            StudentID = form1.cleaned_data.get('StudentID')
-            profile.StudentID = StudentID
-            print(StudentID)
-            print(profile.StudentID)
-            user = form.save()
-            profile.user=user
+            username = form.cleaned_data.get('username')
+            form.save()
+            user = User.objects.filter(username=username).first()
+            profile = Profile(
+                StudentID=form1.cleaned_data.get('StudentID'),
+                Branch=form1.cleaned_data.get('Branch'),
+                YearOfStudy=form1.cleaned_data.get('YearOfStudy'),
+                ContactNumber=form1.cleaned_data.get('ContactNumber'),
+                user=user
+            )
             profile.save()
-            form1.save()
             messages.success(request, f'Your account has been created! You are now able to log in')
-            print("reached here")
             return redirect('login')
     else:
         form = UserRegisterForm()
