@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block nav %}
     <li><a href="post_announcement">Post Announcement</a></li>
-    <li><a href="fee">View Fee Details</a></li>
+    <li><a href="{% url 'fee' %}">View Fee Details</a></li>
 {% endblock nav %}
 {% block content %}
 

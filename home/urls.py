@@ -12,8 +12,8 @@ urlpatterns = [
     path('post_announcement/', views.upload, name="upload"),
     path('application-for-hostel/success/', views.success, name='success'),
     path('postComplaint/complaintSuccess/', views.success, name='complaintSuccess'),
-    path('fee/', views.CreateFeeQueryView, name='fee'),
-    path('fee/updateFee/', views.updateFeeView, name='updateFee'),
+    path('users/fee/', views.CreateFeeQueryView, name='fee'),
+    path('users/fee/updateFee/', views.updateFeeView, name='updateFee'),
     path('users/', views.users, name="users"),
 
 ]

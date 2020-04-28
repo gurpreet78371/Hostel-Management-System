@@ -1,21 +1,37 @@
 {% extends "home/base.html" %}
 {% load crispy_forms_tags %}
 {% block nav %}
-    <li><a href="post_announcement">Post Announcement</a></li>
-    <li><a href="fee">View Fee Details</a></li>
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
+    <li><a href="{% url 'web-home' %}">View Fee Details</a></li>
 {% endblock nav %}
 {% block content %}
 
-	<div class="content-section">
-		<form method="POST" enctype="multipart/form-data">
-    		{% csrf_token %}
-    		<fieldset class="form-group">
-    			<legend class="border-bottom mb-4">POST ANNOUNCEMENT</legend>
-    			{{ form|crispy }}
-    		</fieldset>
-    		<div class="form-group">
-    			<button class="btn btn-outline-info" type="submit">POST</button>
-    		</div>
-	    </form>
-	</div>
+    <div class="table">
+        <div class="table-header">
+            <div class="header__item">Student ID</div>
+            <div class="header__item">month</div>
+            <div class="header__item">Regular Fee</div>
+            <div class="header__item">Discount</div>
+            <div class="header__item">Extra</div>
+            <div class="header__item">Total</div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% for form in forms %}
+                {% csrf_token %}
+                <div class="table-content">
+                    <div class="table-row">
+                        <div class="table-data">{{form.User}}</div>
+                        <div class="table-data">{{form.month}}</div>
+                        <div class="table-data">{{form.regularFee}}</div>
+                        <div class="table-data">{{form.extraFee}}</div>
+                        <div class="table-data">{{form.discount}}</div>
+                        <div class="table-data">{{form.Total}}</div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="form-group" style="margin-left: 90%;">
+                <button class="btn btn-outline-info" type="submit">UPDATE</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

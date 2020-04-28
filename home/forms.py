@@ -11,7 +11,7 @@ class notification(forms.ModelForm):
 class hostelapplication(forms.ModelForm):
 	class Meta:
 		model = hostelApplication
-		fields = ('hostelName', 'sid','isChandigarhQuota', 'city', 'antiRaggingAffidavit', 'noVehicleAffidavit',)
+		fields = ('hostelName', 'sid', 'studentName', 'isChandigarhQuota', 'city', 'antiRaggingAffidavit', 'noVehicleAffidavit',)
 
 
 class messFeeForm(forms.ModelForm):

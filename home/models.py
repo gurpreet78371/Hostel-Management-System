@@ -69,11 +69,12 @@ class hostelApplication(models.Model):
 class messFee(models.Model):
 	User = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='profile')
 	hostelName = models.CharField(verbose_name='Select Hostel', max_length=20, choices=hostels, default='shivalik')
-	month = models.CharField(max_length=10,verbose_name='Enter month you want to check for', choices=months, blank=True)
+	month = models.CharField(max_length=10,verbose_name='Month', choices=months, blank=True)
 	regularFee = models.IntegerField(verbose_name='Regular Fee', default=1500)
 	extraFee = models.IntegerField(verbose_name='Extra', default=0)
 	discount = models.IntegerField(verbose_name='Discount', default=0)
 	Total = models.IntegerField(default=1500)
+	status = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.User.user.username
