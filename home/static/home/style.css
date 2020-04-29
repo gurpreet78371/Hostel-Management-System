@@ -22,6 +22,25 @@ body {
   margin-top:30px;
   margin-bottom:76px;
 }
+/*----------Profile card-----*/
+#payment_card {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+}
+#pay_card {
+  margin: 20%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-bottom: 10px;
+  padding-left: 3%;
+  padding-right: 3%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+}
+/*----------profile card ends----*/
 /*----------payment table----*/
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
 

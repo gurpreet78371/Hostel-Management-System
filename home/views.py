@@ -17,6 +17,16 @@ def home(request):
     return render(request, 'home/index1.html', context)
 
 
+def payment(request):
+    profile = Profile.objects.get(user=request.user)
+    context = {
+        'fee_list': messFee.objects.filter(User=profile)
+    }
+    print(profile)
+    print(context)
+    return render(request, 'home/payment.html', context)
+
+
 def about(request):
     return render(request, 'home/about.html')
 

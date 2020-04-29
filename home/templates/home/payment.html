@@ -1,0 +1,39 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block nav %}
+    <li><a href="{% url 'postComplaint' %}">Post Complaint</a></li>
+    <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">Announcements</a></li>
+{% endblock nav %}
+{% block content %}
+
+	{% for fee in fee_list %}
+		<div id="pay_card" class="border">
+			<div id="payment_card" class="border-bottom">
+				<div>Hostel</div>
+				<div>{{fee.hostelName}}</div>
+			</div>
+			<div id="payment_card" class="border-bottom">
+				<div>Month</div>
+				<div>{{fee.month}}</div>
+			</div>
+			<div id="payment_card" class="border-bottom">
+				<div>Regular Fee</div>
+				<div>{{fee.regularFee}}</div>
+			</div>
+			<div id="payment_card" class="border-bottom">
+				<div>Extra Charges</div>
+				<div>{{fee.extraFee}}</div>
+			</div>
+			<div id="payment_card" class="border-bottom">
+				<div>Dicount</div>
+				<div>{{fee.discount}}</div>
+			</div>
+			<div id="payment_card" class="border-bottom" style="font-weight: bold;">
+				<div>Net Payable</div>
+				<div>{{fee.Total}}</div>
+			</div>
+			<button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 81%;">Proceed to Pay</button>
+		</div>
+	{% endfor %}
+{% endblock content %}

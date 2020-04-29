@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% load static %}
 {% block nav %}
     {% if not user.is_superuser %}
     <li><a href="#">Pay Mess Bill</a></li>
@@ -11,6 +12,8 @@
   {% endif %}
 {% endblock nav %}
 {% block content %}
+<div>
+  <div>
     <section id="main">
       <div class="container">
         <article id="main-col">
@@ -25,4 +28,39 @@
         
       </div>
     </section>
+  </div>
+
+</div>
+  <div class="card card-cascade" style="margin: 35%; margin-top: 30px; margin-bottom: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top" src="{% static 'home/images/designer1.jpg' %}" alt="Card image cap" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title" style="font-size: 30px;"><strong>Gurpreet Singh</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">Web developer</h6>
+    <!-- Text -->
+    <p class="card-text">Accept the challenges so that you can feel the exhilaration of victory. ...
+    </p>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/profile.php?id=100007802865456"><i class="fa fa-2x fa-facebook-square" target="_blank" aria-hidden="true" style="height: 30px; margin-right: 8px;"></i></a>
+    <!-- Twitter -->
+    <a href="https://www.instagram.com/gurpreet.singh_laddi/"><i class="fa fa-2x fa-instagram" target="_blank" aria-hidden="true" style="height: 30px; margin-right: 8px;"></i></a>
+    <!-- Google + -->
+    <a href="https://github.com/gurpreet78371"><i class="fa fa-2x fa-github" aria-hidden="true" target="_blank" style="height: 30px;"></i></a>
+
+  </div>
+</div>
+
 {% endblock content %}
+
+ <!-- Card content -->
+  

@@ -7,6 +7,9 @@
     <li><a href="#rules">Hostel Rules</a></li>
     <li><a href="#wardenMessage">Warden's Message</a></li>
     <li><a href="#studentRepresentatives">Hostels</a></li>
+    {% if not user.is_superuser %}
+    <li><a href="{% url 'payment' %}">Pay Mess Bill</a></li>
+    {% endif %}
 {% endblock nav%}
 {% block content %}
 	<div class="hero-area">

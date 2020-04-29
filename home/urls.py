@@ -15,5 +15,6 @@ urlpatterns = [
     path('users/fee/', views.CreateFeeQueryView, name='fee'),
     path('users/fee/updateFee/', views.updateFeeView, name='updateFee'),
     path('users/', views.users, name="users"),
+    path('messFee', views.payment, name="payment"),
 
 ]
