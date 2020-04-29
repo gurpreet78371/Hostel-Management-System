@@ -22,8 +22,6 @@ def payment(request):
     context = {
         'fee_list': messFee.objects.filter(User=profile)
     }
-    print(profile)
-    print(context)
     return render(request, 'home/payment.html', context)
 
 

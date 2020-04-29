@@ -2,7 +2,7 @@
 {% load static %}
 {% block nav %}
     {% if not user.is_superuser %}
-    <li><a href="#">Pay Mess Bill</a></li>
+    <li><a href="{% url 'payment' %}">Pay Mess Bill</a></li>
     <li><a href="{% url 'postComplaint' %}">Post Complaint</a></li>
     <li><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" title="ababab" href="#myModal">Announcements</a></li>
     <li><a href="{% url 'application-for-hostel' %}">Apply For Hostel</a></li>

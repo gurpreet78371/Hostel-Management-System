@@ -1,7 +1,7 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block nav %}
-    <li><a href="post_announcement">Post Announcement</a></li>
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
     <li><a href="fee">View Fee Details</a></li>
 {% endblock nav %}
 {% block content %}

@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block nav %}
-    <li><a href="post_announcement">Post Announcement</a></li>
+    <li><a href="{% url 'upload' %}">Post Announcement</a></li>
 {% endblock nav %}
 {% block content %}
 	<div class="content-section">

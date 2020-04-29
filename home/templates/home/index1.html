@@ -200,7 +200,7 @@
   </section>
     <br>
     <br>
-  <section id="wardenMessage" style="margin-top: 20px;">
+  <section id="wardenMessage" style="margin-top: 20px; margin-bottom: 10px;">
   	<h3 style="text-decoration-line: underline; text-align: center; padding-top: 50px;">Warden's Message</h3>
   	<div class="bg">
 	    <div class="container">
@@ -237,7 +237,6 @@
 	    </div>
     </div>
   </section>
-  <br><br>
     <!-- ##### Call To Action End ###### -->
 
   <!--==========================
@@ -643,6 +642,7 @@
   <!-- #students representatives-->
 
     <!-- ##### Call To Action Start ###### -->
+    {% if not user.is_superuser %}
     <section class="cta-2-area wow fadeInUp" data-wow-delay="100ms">
         <div class="container">
             <div class="row">
@@ -660,6 +660,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
     <!-- ##### Call To Action End ###### -->
 
     <!-- ##### Services Area Start ###### -->
