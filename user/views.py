@@ -5,6 +5,7 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ProfileC
 from django.views.generic import CreateView
 from .models import complaint, Profile
 from django.contrib.auth.models import User
+from home.models import notification
 
 
 def register(request):
@@ -28,11 +29,12 @@ def register(request):
     else:
         form = UserRegisterForm()
         form1 = ProfileCreationForm()
-    context = {
-        'form': form,
-        'form1': form1
-    }
-    return render(request, 'user/register.html', context)
+        context = {
+            'form': form,
+            'form1': form1,
+            'notifications': notification.objects.all()
+        }
+        return render(request, 'user/register.html', context)
 
 
 class CreateComplaintView(CreateView):
@@ -65,7 +67,8 @@ def profile(request):
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'notifications': notification.objects.all()
     }
 
     return render(request, 'user/profile.html', context)

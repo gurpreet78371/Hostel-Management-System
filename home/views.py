@@ -20,13 +20,17 @@ def home(request):
 def payment(request):
     profile = Profile.objects.get(user=request.user)
     context = {
-        'fee_list': messFee.objects.filter(User=profile)
+        'fee_list': messFee.objects.filter(User=profile),
+        'notifications': notification.objects.all()
     }
     return render(request, 'home/payment.html', context)
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    context = {
+        'notifications': notification.objects.all()
+    }
+    return render(request, 'home/about.html', context)
 
 
 def fee(request):
@@ -96,8 +100,11 @@ def updateFeeView(request):
         })
 
 
-def noti(request, id=None):
-    content = {'content': notification.objects.get(id=id)}
+def noti(request, id):
+    content = {
+        'notification': notification.objects.get(id=id),
+        'notifications':notification.objects.all()
+    }
     return render(request, 'home/shownoti.html', content)
 
 
@@ -128,7 +135,10 @@ def upload(request):
 
 
 def success(request):
-    return render(request, 'home/success.html')
+    content = {
+        'notifications': notification.objects.all()
+    }
+    return render(request, 'home/success.html', content)
 
 
 class CreateMyModelView(CreateView):
@@ -170,7 +180,8 @@ def CreateFeeQueryView(request):
     else:
         form = FeeQueryForm()
         return render(request, 'home/FeeQuerySelector.html', {
-            'form': form
+            'form': form,
+            'notifications': notification.objects.all()
         })
 
 

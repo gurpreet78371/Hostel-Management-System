@@ -21,4 +21,35 @@
     		<small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
     	</div>
     </div>
+    <div class="modal fade" data-backdrop="static" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Announcements</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body" id="modalBody">
+                  <!-- Modal body.. -->
+          {% for notification in notifications %}
+              <small>
+                  <a href="{% url 'notification' id=notification.id %}">
+                      <small style="text-decoration-color: blue;">
+                          <i class="fa fa-arrow-right" aria-hidden="true" style="margin-right: 5px;"></i>{{notification.title}}
+                      </small>
+                  </a>
+                  ,   ({{notification.date_posted|date:"D M, Y"}})
+              </small>
+              <hr>
+          {% endfor %}
+        </div>
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+              
+      </div>
+    </div>
+  </div>
 {% endblock content %}

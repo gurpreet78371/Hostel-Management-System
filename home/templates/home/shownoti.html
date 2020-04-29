@@ -8,9 +8,52 @@
 {% block content %}
 
 	<div class="noti">
-		<div class="noti-content">
-			<!-- <h2>{{title}}</h2> -->
-			<h2>{{ content.content }}</h2>
+		<div class="border" style="margin: 15%; margin-top: 20px; margin-bottom: 20px; font-family: sans-serif; padding: 15px;">
+      <div class="border-bottom" style="display: flex; margin-bottom: 20px;">
+        <div style="flex: 0 0 85%;"><h3>{{ notification.title }}</h3></div>
+        <div style="flex: 1; padding-top: 10px;">
+          {{ notification.date_posted|date:"D M, Y" }}
+        </div>
+      </div>
+			{{ notification.content }}
+      <div class="border rounded" style="margin: 20%;margin-top: 10px; margin-bottom: 10px; padding: 10px;text-align: center; font-size: 17px;">
+        <a href="{{ notification.document.url }}" style="font-size: small;">
+          <i class="fa fa-download" aria-hidden="true"></i> {{ notification.document }}
+        </a>
+      </div>
+      
 		</div>
 	</div>
+
+	<div class="modal fade" data-backdrop="static" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Announcements</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body" id="modalBody">
+                  <!-- Modal body.. -->
+          {% for notification in notifications %}
+              <small>
+                  <a href="{% url 'notification' id=notification.id %}">
+                      <small style="text-decoration-color: blue;">
+                          <i class="fa fa-arrow-right" aria-hidden="true" style="margin-right: 5px;"></i>{{notification.title}}
+                      </small>
+                  </a>
+                  ,   ({{notification.date_posted|date:"D M, Y"}})
+              </small>
+              <hr>
+          {% endfor %}
+        </div>
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+              
+      </div>
+    </div>
+  </div>
 {% endblock content %}
