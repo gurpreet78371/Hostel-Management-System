@@ -8,6 +8,7 @@ from django.core.files.storage import FileSystemStorage
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 from django import forms
+from django.http import JsonResponse
 
 
 def home(request):
@@ -16,7 +17,7 @@ def home(request):
     }
     return render(request, 'home/index1.html', context)
 
-
+@login_required
 def payment(request):
     profile = Profile.objects.get(user=request.user)
     context = {
@@ -32,14 +33,14 @@ def about(request):
     }
     return render(request, 'home/about.html', context)
 
-
+@login_required
 def fee(request):
     fees = {
         'fee_list': messFee.objects.all()
     }
     return render(request, 'home/FeeQuerySelector.html', fees)
 
-
+@login_required
 def updateFeeView(request):
 
     fees = messFee.objects.all()
@@ -107,7 +108,7 @@ def noti(request, id):
     }
     return render(request, 'home/shownoti.html', content)
 
-
+@login_required
 def noti_upload(request):
     if request.method == 'POST' and request.FILES.get('myfile', False):
         myfile = request.FILES['myfile']
@@ -119,7 +120,7 @@ def noti_upload(request):
         })
     return render(request, 'home/noti_upload.html')
 
-
+@login_required
 def upload(request):
     if request.method == 'POST':
         form = noti_form(request.POST, request.FILES)
@@ -148,6 +149,7 @@ class CreateMyModelView(CreateView):
     success_url = 'success'
 
 
+@login_required
 def CreateFeeQueryView(request):
     flag = False
     if request.method == 'POST':
@@ -180,16 +182,30 @@ def CreateFeeQueryView(request):
     else:
         form = FeeQueryForm()
         return render(request, 'home/FeeQuerySelector.html', {
-            'form': form,
-            'notifications': notification.objects.all()
+            'form': form
         })
 
 
 @login_required
 def users(request):
     if request.user.is_staff or request.user.is_superuser:
-        context = dict(complaints=complaint.objects.all(), applications=hostelApplication.objects.all())
+        context = dict(complaints=complaint.objects.all(), applications=hostelApplication.objects.filter(isApproved=False))
         return render(request, 'home/admin_view.html', context)
     else:
         content = dict(notifications=notification.objects.all())
         return render(request, 'home/index1.html', content)
+
+
+def ajax_change_status(request):
+    print('hello')
+    isApproved = request.GET.get('isApproved', False)
+    application_id = request.GET.get('app_id', False)
+    # first you get your Job model
+    application = hostelApplication.objects.get(pk=application_id)
+    try:
+        application.isApproved = True
+        application.save()
+        return JsonResponse({"success": True})
+    except Exception as e:
+        return JsonResponse({"success": False})
+    return JsonResponse(data)

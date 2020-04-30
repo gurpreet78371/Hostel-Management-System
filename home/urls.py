@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from user import views as user_views
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.home, name="web-home"),
@@ -16,5 +17,6 @@ urlpatterns = [
     path('users/fee/updateFee/', views.updateFeeView, name='updateFee'),
     path('users/', views.users, name="users"),
     path('messFee', views.payment, name="payment"),
+    url(r'^ajax/change_status/$', views.ajax_change_status, name='ajax_change_status')
 
 ]

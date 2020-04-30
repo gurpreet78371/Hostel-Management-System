@@ -8,6 +8,7 @@
     <li><a href="#hostelapplications">View Hostel Applications</a></li>
 {% endblock nav %}
 {% block content %}
+	
 	{% if applications %}
 		<div class="container" id="hostelapplications">
 			<h1 style="text-align: center;">Hostel Applications</h1>
@@ -20,9 +21,11 @@
 					<div class="header__item">Anti Ragging Certificate</div>
 					<div class="header__item">No Vehicle Affidavite</div>
 					<div class="header__item">Application Date</div>
+					<div class="header__item">Approve?</div>
 				</div>
 				
 				{% for application in applications %}
+					{% csrf_token %}
 					<div class="table-content">
 						<div class="table-row">
 							<div class="table-data">{{application.hostelName}}</div>
@@ -38,14 +41,19 @@
 								</a>
 							</div>
 							<div class="table-data">{{application.dateApplied}}</div>
+							<div class="table-data">
+								<button type="button" class="btn btn-info" id="state">Approve</button>
+							</div>
 						</div>
 						
 					</div>
+
 				{% endfor %}
 				
 			</div>
 		</div>
 	{% else %}
+
 		<div class="alert alert-info m-10" style="font-size: 20px; text-align: center; margin: 5%; margin-bottom: 0;">
   			<strong>Info!</strong> You don't have any Hostel applications.
 		</div>
@@ -78,4 +86,31 @@
 		</div>
 	{% endif %}
 {% endblock content %}
-
+{% block javascript %}
+<script>
+    $("#state").on('click', function () {
+    	console.log('hello');
+    	var username = $(this).val();
+    	var isApproved = true; // or false, you have to set it
+    	var id = application.id; // you have to set it
+    	$.ajax({
+    		url: 'ajax/change_status/',
+    		data: {
+    			'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val(),
+    			'isApproved': true,
+    			'app_id': id
+    		},
+    		dataType: 'json',
+    		success: function (data) {
+    			if (data.success) {
+    				alert("ajax call success.");
+    				// here you update the HTML to change the active to innactive
+    			}
+    			else{
+    				alert("ajax call not success.");
+    			}
+    		}
+    	});
+    });
+</script>
+{% endblock javascript %}

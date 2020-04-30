@@ -24,3 +24,4 @@ class FeeQueryForm(forms.ModelForm):
 	class Meta:
 		model = FeeQuery
 		fields = ('SID', 'month', 'hostelName', )
+	

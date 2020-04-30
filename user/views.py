@@ -13,19 +13,32 @@ def register(request):
         form = UserRegisterForm(request.POST)
         form1 = ProfileCreationForm(request.POST)
         if form.is_valid() and form1.is_valid():
-            username = form.cleaned_data.get('username')
-            form.save()
-            user = User.objects.filter(username=username).first()
-            profile = Profile(
-                StudentID=form1.cleaned_data.get('StudentID'),
-                Branch=form1.cleaned_data.get('Branch'),
-                YearOfStudy=form1.cleaned_data.get('YearOfStudy'),
-                ContactNumber=form1.cleaned_data.get('ContactNumber'),
-                user=user
-            )
-            profile.save()
-            messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('login')
+            email = form.cleaned_data.get('email')
+            domain = email.split('@')[1]
+            if domain == "pec.edu.in":
+                username = form.cleaned_data.get('username')
+                form.save()
+                user = User.objects.filter(username=username).first()
+                profile = Profile(
+                    StudentID=form1.cleaned_data.get('StudentID'),
+                    Branch=form1.cleaned_data.get('Branch'),
+                    YearOfStudy=form1.cleaned_data.get('YearOfStudy'),
+                    ContactNumber=form1.cleaned_data.get('ContactNumber'),
+                    user=user
+                )
+                profile.save()
+                messages.success(request, f'Your account has been created! You are now able to log in')
+                return redirect('login')
+            else:
+                messages.warning(request, f'You will have to use pec email id for registration')
+                form = UserRegisterForm()
+                form1 = ProfileCreationForm()
+                context = {
+                    'form': form,
+                    'form1': form1,
+                    'notifications': notification.objects.all()
+                }
+                return render(request, 'user/register.html', context)
     else:
         form = UserRegisterForm()
         form1 = ProfileCreationForm()

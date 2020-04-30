@@ -61,7 +61,8 @@ class hostelApplication(models.Model):
 	isChandigarhQuota = models.CharField(verbose_name='Do you have chandigarh quota?', max_length=3, choices=isChandigarhQuota, default='y')
 	antiRaggingAffidavit = models.FileField(verbose_name='Anti Ragging Affidavit', upload_to='documents/')
 	noVehicleAffidavit = models.FileField(verbose_name='No Vehicle Affidavit', upload_to='documents/')
-
+	isApproved = models.BooleanField(default=False)
+	
 	def __str__(self):
 		return self.hostelName
 
